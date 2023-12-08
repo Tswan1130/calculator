@@ -1,0 +1,10 @@
+import json
+
+class DataLogger:
+    """Class to handle logging of calculator operations."""
+
+    def log_operation(self, operation: str, values: list[float], result: float, filename: str = "log.json"):
+        data = {"operation": operation, "values": values, "result": result}
+        with open(filename, "a") as file:
+            json.dump(data, file)
+            file.write("\n")  # Add newline for readability
